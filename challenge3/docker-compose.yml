@@ -1,0 +1,22 @@
+services:
+  web:
+    build: ../
+    ports:
+      - "3000:3000"
+    develop:
+      watch:
+        - action: sync
+          path: ..
+          target: /app
+    environment:
+      MONGO_URI: mongodb://root:example@mongo:27017
+  mongo:
+    image: "arm64v8/mongo:7.0-rc"
+    ports:
+      - "3001:27017"
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+
+    

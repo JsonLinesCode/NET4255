@@ -1,0 +1,9 @@
+docker compose exec mongo mongosh -u root -p example --authenticationDatabase example \
+  --eval 'use chocolate_box; db.chocolates.insertMany([
+    {name:"Kinder", flavor:"Chocolate", added_at:new Date()},
+    {name:"Kinder", flavor:"Milk", added_at:new Date()},
+    {name:"Lindt", flavor:"Dark", added_at:new Date()},
+    {name:"Godiva", flavor:"Hazelnut", added_at:new Date()},
+    {name:"Ferrero", flavor:"Caramel", added_at:new Date()},
+    {name:"Ghirardelli", flavor:"Mint", added_at:new Date()}
+  ])'
